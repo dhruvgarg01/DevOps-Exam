@@ -16,3 +16,5 @@ The goal of this project was to take the local IceCream Node.js web application 
 1. Apply the database: `kubectl apply -f mongo.yaml`
 2. Apply the web app: `kubectl apply -f web.yaml`
 3. Expose the service: `kubectl port-forward service/web-service 8080:80`
+
+# Project Team: Dhruv Garg, Vansh, Nitesh Kumar
