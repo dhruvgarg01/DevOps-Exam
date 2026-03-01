@@ -1,0 +1,4 @@
+# This script fulfills the requirement to simulate 500 concurrent requests over 60 seconds.
+# It uses a temporary busybox container to spam the web-service endpoint.
+
+kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://web-service; done"

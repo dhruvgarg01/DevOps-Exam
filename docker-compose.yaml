@@ -1,0 +1,21 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      # This tells the web app to look for the database container named 'mongo' instead of 'localhost'
+      - MONGODB_URI=mongodb://admin:password@mongo:27017/?authSource=admin
+      - DB_HOST=mongo
+    depends_on:
+      - mongo
+    restart: always
+
+  mongo:
+    image: mongo:6.0
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    ports:
+      - "27017:27017"
+    restart: always
